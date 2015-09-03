@@ -30,7 +30,7 @@ void setup() {
     //
     // So, open a serial connection using something like:
     // screen /dev/tty.usbmodem1411 9600
-    while(!Serial.available()) SPARK_WLAN_Loop();
+    while(!Serial.available()) Particle.process();
     
     Serial.println("Initializing I2C devices...");
     accelgyro.initialize();

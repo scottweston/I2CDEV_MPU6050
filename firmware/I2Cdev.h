@@ -72,6 +72,7 @@ THE SOFTWARE.
 
 #if defined (SPARK)
 	#include "application.h"
+	#define	BUFFER_LENGTH	32
 #endif
 
 #ifdef ARDUINO

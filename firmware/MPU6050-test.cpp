@@ -1718,7 +1718,7 @@ bool MPU6050::getIntDataReadyStatus() {
  */
 void MPU6050::getMotion9(int16_t* ax, int16_t* ay, int16_t* az, int16_t* gx, int16_t* gy, int16_t* gz, int16_t* mx, int16_t* my, int16_t* mz) {
     getMotion6(ax, ay, az, gx, gy, gz); // stores results in 14 bytes of buffer
-    I2Cdev::readBytes(devAddr, MPU9150_MAG_XOUT_L, 6, buffer[14]);
+    I2Cdev::readBytes(devAddr, MPU9150_MAG_XOUT_L, 6, buffer+14);
     *mx = (((int16_t)buffer[15]) << 8) | buffer[14];
     *my = (((int16_t)buffer[17]) << 8) | buffer[16];
     *mz = (((int16_t)buffer[19]) << 8) | buffer[18];

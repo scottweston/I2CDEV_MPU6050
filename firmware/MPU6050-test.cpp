@@ -64,7 +64,7 @@ void MPU6050::initialize() {
     setClockSource(MPU6050_CLOCK_PLL_XGYRO);
     setFullScaleGyroRange(MPU6050_GYRO_FS_250);
     setFullScaleAccelRange(MPU6050_ACCEL_FS_2);
-    setMagnetometerMode(MPU9150_MAG_SMM);
+    setMagnetometerMode(MPU9150_MAG_FUSE);
     setSleepEnabled(false); // thanks to Jack Elston for pointing this one out!
 }
 
@@ -1717,11 +1717,11 @@ bool MPU6050::getIntDataReadyStatus() {
  * @see MPU6050_RA_ACCEL_XOUT_H
  */
 void MPU6050::getMotion9(int16_t* ax, int16_t* ay, int16_t* az, int16_t* gx, int16_t* gy, int16_t* gz, int16_t* mx, int16_t* my, int16_t* mz) {
-    getMotion6(ax, ay, az, gx, gy, gz);
-    I2Cdev::readBytes(devAddr, MPU9150_MAG_XOUT_L, 6, buffer);
-    *mx = (((int16_t)buffer[1]) << 8) | buffer[0];
-    *my = (((int16_t)buffer[3]) << 8) | buffer[2];
-    *mz = (((int16_t)buffer[5]) << 8) | buffer[4];
+    getMotion6(ax, ay, az, gx, gy, gz); // stores results in 14 bytes of buffer
+    I2Cdev::readBytes(devAddr, MPU9150_MAG_XOUT_L, 6, buffer[14]);
+    *mx = (((int16_t)buffer[15]) << 8) | buffer[14];
+    *my = (((int16_t)buffer[17]) << 8) | buffer[16];
+    *mz = (((int16_t)buffer[19]) << 8) | buffer[18];
 }
 /** Get raw 6-axis motion sensor readings (accel/gyro).
  * Retrieves all currently available motion sensor values.

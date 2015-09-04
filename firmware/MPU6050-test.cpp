@@ -64,6 +64,7 @@ void MPU6050::initialize() {
     setClockSource(MPU6050_CLOCK_PLL_XGYRO);
     setFullScaleGyroRange(MPU6050_GYRO_FS_250);
     setFullScaleAccelRange(MPU6050_ACCEL_FS_2);
+    setMagnetometerMode(MPU9150_MAG_SMM);
     setSleepEnabled(false); // thanks to Jack Elston for pointing this one out!
 }
 
@@ -2394,6 +2395,15 @@ bool MPU6050::getSleepEnabled() {
 void MPU6050::setSleepEnabled(bool enabled) {
     I2Cdev::writeBit(devAddr, MPU6050_RA_PWR_MGMT_1, MPU6050_PWR1_SLEEP_BIT, enabled);
 }
+
+/** Set magnetometer mode.
+ * @param mode
+ * @see MPU9150_MAG_CNTL
+ */
+void MPU6050::setMagnetometerMode(uint8_t data) {
+    I2Cdev::writeByte(devAddr, MPU9150_MAG_CNTL, data);
+}
+
 /** Get wake cycle enabled status.
  * When this bit is set to 1 and SLEEP is disabled, the MPU-60X0 will cycle
  * between sleep mode and waking up to take a single sample of data from active

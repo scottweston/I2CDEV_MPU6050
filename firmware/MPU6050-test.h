@@ -425,6 +425,9 @@ THE SOFTWARE.
 #define MPU6050_DMP_MEMORY_BANK_SIZE    256
 #define MPU6050_DMP_MEMORY_CHUNK_SIZE   16
 
+#define MPU9150_MAG_SMM     1
+#define MPU9150_MAG_FUSE    15
+
 // note: DMP code memory blocks defined at end of header file
 
 class MPU6050 {

@@ -73,6 +73,26 @@ THE SOFTWARE.
 #define MPU6050_RA_YG_OFFS_USRL     0x16
 #define MPU6050_RA_ZG_OFFS_USRH     0x17 //[15:0] ZG_OFFS_USR
 #define MPU6050_RA_ZG_OFFS_USRL     0x18
+
+#define MPU9150_MAG_DEV_ID          0x00
+#define MPU9150_MAG_INFO            0x01
+#define MPU9150_MAG_STATUS_1        0x02
+#define MPU9150_MAG_XOUT_L          0x03
+#define MPU9150_MAG_XOUT_H          0x04
+#define MPU9150_MAG_YOUT_L          0x05
+#define MPU9150_MAG_YOUT_H          0x06
+#define MPU9150_MAG_ZOUT_L          0x07
+#define MPU9150_MAG_ZOUT_H          0x08
+#define MPU9150_MAG_STATUS_2        0x09
+#define MPU9150_MAG_CNTL            0x0a
+#define MPU9150_MAG_ASTC            0x0c
+#define MPU9150_MAG_TS1             0x0d
+#define MPU9150_MAG_TS2             0x0e
+#define MPU9150_MAG_I2CDIS          0x0f
+#define MPU9150_MAG_ASAX            0x10
+#define MPU9150_MAG_ASAY            0x11
+#define MPU9150_MAG_ASAZ            0x12
+
 #define MPU6050_RA_SMPLRT_DIV       0x19
 #define MPU6050_RA_CONFIG           0x1A
 #define MPU6050_RA_GYRO_CONFIG      0x1B

@@ -468,6 +468,9 @@ class MPU6050 {
         uint8_t getDHPFMode();
         void setDHPFMode(uint8_t mode);
 
+        // MAGNETOMETER functions
+        void setMagnetometerMode(uint8_t mode);
+        
         // FF_THR register
         uint8_t getFreefallDetectionThreshold();
         void setFreefallDetectionThreshold(uint8_t threshold);
